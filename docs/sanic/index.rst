@@ -1,3 +1,7 @@
+readthedocs 是需要关联 Github 的，所以先找到其代码库的地址： https://github.com/pexpect/pexpect.git 
+
+然后 Fork ，翻译，之后自己在 readthedocs 新建项目部署上去。
+
 Sanic
 =================================
 
