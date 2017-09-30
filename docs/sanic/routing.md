@@ -1,9 +1,8 @@
-# Routing
+# 路由
 
-Routing allows the user to specify handler functions for different URL endpoints.
+路由允许用户为不同的URL路径指定处理的函数。
 
-A basic route looks like the following, where `app` is an instance of the
-`Sanic` class:
+一个基本的路由应该像下面这样, `app`是`Sanic`类的一个实例:
 
 ```python
 from sanic.response import json
@@ -13,20 +12,15 @@ async def test(request):
     return json({ "hello": "world" })
 ```
 
-When the url `http://server.url/` is accessed (the base url of the server), the
-final `/` is matched by the router to the handler function, `test`, which then
-returns a JSON object.
+当这个url `http://server.url/` 被访问的时候 (the base url of the server), 最终`/`会被路由器匹配到这个处理函数, `test`, 然后这个函数会返回 一个 JSON 对象.
 
-Sanic handler functions must be defined using the `async def` syntax, as they
-are asynchronous functions.
+Sanic的处理函数一定要用这样的语法规则被定义`async def`, 因为他们是异步函数来的.
 
-## Request parameters
+## Request参数
 
-Sanic comes with a basic router that supports request parameters.
+Sanic原生带有一个基本的路由器来支持request的参数.
 
-To specify a parameter, surround it with angle quotes like so: `<PARAM>`.
-Request parameters will be passed to the route handler functions as keyword
-arguments.
+为了指定一个参数, 用<>号包围它: `<PARAM>`.Request的参数会作为关键字参数被传到路由处理函数里面.
 
 ```python
 from sanic.response import text
@@ -36,10 +30,7 @@ async def tag_handler(request, tag):
 	return text('Tag - {}'.format(tag))
 ```
 
-To specify a type for the parameter, add a `:type` after the parameter name,
-inside the quotes. If the parameter does not match the specified type, Sanic
-will throw a `NotFound` exception, resulting in a `404: Page not found` error
-on the URL.
+为了指定参数类型, 在引号里面紧跟参数名字后面加入这样的`:type`. 如果参数匹配不到指定的类型, Sanic会抛出`NotFound`异常, 在url的页面会出现 `404: Page not found` 的错误
 
 ```python
 from sanic.response import text
