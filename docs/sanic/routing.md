@@ -53,11 +53,9 @@ async def folder_handler(request, folder_id):
 
 ```
 
-## HTTP request types
+## HTTP请求类型
 
-By default, a route defined on a URL will be available for only GET requests to that URL.
-However, the `@app.route` decorator accepts an optional parameter, `methods`,
-which allows the handler function to work with any of the HTTP methods in the list.
+按默认来说, 一条定义了URL的路由只会获得GET请求.但是呢, 装饰器`@app.route`接受可选参数,`methods`,这就允许处理函数可以根据任何HTTP的methods来工作.
 
 ```python
 from sanic.response import text
@@ -72,7 +70,7 @@ async def get_handler(request):
 
 ```
 
-There is also an optional `host` argument (which can be a list or a string). This restricts a route to the host or hosts provided. If there is a also a route with no host, it will be the default.
+这里也提供一个`host`参数(可以是一个列表或者字符串). This restricts a route to the host or hosts provided. If there is a also a route with no host, it will be the default.
 
 ```python
 @app.route('/get', methods=['GET'], host='example.com')
@@ -99,9 +97,9 @@ async def get_handler(request):
 	return text('GET request - {}'.format(request.args))
 
 ```
-## The `add_route` method
+## `add_route`方法
 
-As we have seen, routes are often specified using the `@app.route` decorator.
+正如我们所见, 路由常常用`@app.route`装饰器来指定.
 However, this decorator is really just a wrapper for the `app.add_route`
 method, which is used as follows:
 
@@ -293,7 +291,7 @@ def handler(request):
 # app.url_for('post_handler') == '/post'
 ```
 
-## Build URL for static files
+## 为静态文件生成URL
 
 You can use `url_for` for static file url building now.
 If it's for file directly, `filename` can be ignored.
